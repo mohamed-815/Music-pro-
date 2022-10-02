@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 import 'package:flutter_application_1stproject/db/dbfetching.dart';
 import 'package:flutter_application_1stproject/mainscreen.dart';
+import 'package:rflutter_alert/rflutter_alert.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 class Settings extends StatefulWidget {
@@ -103,6 +104,26 @@ class _SettingsState extends State<Settings> {
                   })),
             ),
             ListTile(
+              onTap: () {
+                Alert(
+                    context: context,
+                    title: "Help",
+                    desc: "mail @ mohmedvgd34@gmail.com",
+                    buttons: [
+                      DialogButton(
+                        color: Color.fromARGB(255, 29, 64, 51),
+                        child: SizedBox(
+                          child: Text(
+                            'close',
+                            style: TextStyle(color: Colors.white),
+                          ),
+                        ),
+                        onPressed: () {
+                          Navigator.pop(context);
+                        },
+                      )
+                    ]).show();
+              },
               leading: const Icon(
                 Icons.support_agent_rounded,
                 color: Colors.white,

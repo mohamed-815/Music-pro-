@@ -56,7 +56,7 @@ class _FavoritesState extends State<Favorites> {
                           child: Icon(
                         Icons.arrow_back_ios,
                         color: Colors.white,
-                        size: 18,
+                        size: 19,
                       )),
                     ),
                   ),

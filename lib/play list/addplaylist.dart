@@ -104,7 +104,7 @@ class _AddPlayListState extends State<AddPlayList> {
                               borderRadius: BorderRadius.circular(40),
                             ),
                             child: Padding(
-                              padding: const EdgeInsets.all(40.0),
+                              padding: const EdgeInsets.all(30.0),
                               child: Container(
                                 width: screenwidth / 10,
                                 height: screenhight / 4,
@@ -166,13 +166,13 @@ class _AddPlayListState extends State<AddPlayList> {
                                     ),
                                     Padding(
                                       padding: const EdgeInsets.fromLTRB(
-                                          20, 0, 20, 0),
+                                          10, 0, 10, 0),
                                       child: Row(
                                         mainAxisAlignment:
-                                            MainAxisAlignment.spaceBetween,
+                                            MainAxisAlignment.spaceAround,
                                         children: [
                                           SizedBox(
-                                            width: screenwidth / 5,
+                                            width: screenwidth / 4.5,
                                             child: ElevatedButton(
                                                 style: ElevatedButton.styleFrom(
                                                     backgroundColor:
@@ -196,7 +196,7 @@ class _AddPlayListState extends State<AddPlayList> {
                                                 )),
                                           ),
                                           SizedBox(
-                                            width: screenwidth / 5,
+                                            width: screenwidth / 4.5,
                                             child: ElevatedButton(
                                                 style: ElevatedButton.styleFrom(
                                                     backgroundColor:
@@ -338,7 +338,7 @@ class _AddPlayListState extends State<AddPlayList> {
             ],
           ),
           Positioned(
-            bottom: screenhight / 100,
+            bottom: screenhight / 200,
             child: PlayerBuilder.isPlaying(
                 player: audioplayer,
                 builder: (context, isPlaying) {

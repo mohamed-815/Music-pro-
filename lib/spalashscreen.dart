@@ -31,8 +31,8 @@ class _SplashScreenState extends State<SplashScreen> {
         begin: Alignment.bottomLeft,
         end: Alignment.topRight,
         colors: [
-          Color(0xFF8EC5FC),
-          Color(0xFFE0C3FC),
+          Color.fromARGB(255, 115, 170, 156),
+          Color.fromARGB(255, 27, 40, 37)
         ],
       ),
       body: SafeArea(
@@ -41,9 +41,8 @@ class _SplashScreenState extends State<SplashScreen> {
           'MUSIC PRO',
           style: const TextStyle(fontSize: 30, fontWeight: FontWeight.bold),
           colors: const [
-            Colors.blue,
-            Colors.red,
-            Colors.teal,
+            Color.fromARGB(255, 151, 172, 166),
+            Color.fromARGB(255, 151, 172, 166),
           ],
         ),
       )),

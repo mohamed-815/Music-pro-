@@ -136,19 +136,22 @@ class _MainScreenState extends State<MainScreen> {
                                               borderRadius:
                                                   BorderRadius.circular(8)),
                                           child: Container(
-                                            width: screenwidth / 2.5,
-                                            height: screenwidth / 2.2,
-                                            decoration: BoxDecoration(
+                                            child: ClipRRect(
                                               borderRadius:
                                                   BorderRadius.circular(8),
-                                              image: DecorationImage(
-                                                image: AssetImage(
-                                                    SongList[index]
-                                                        .image
-                                                        .toString()),
-                                                fit: BoxFit.fill,
+                                              child: Image.asset(
+                                                SongList[index]
+                                                    .image
+                                                    .toString(),
+                                                fit: BoxFit.cover,
+                                                width: screenwidth / 2.5,
+                                                height: screenheight * 0.23,
                                               ),
                                             ),
+                                            // decoration: BoxDecoration(
+                                            //   borderRadius:
+                                            //       BorderRadius.circular(8),
+                                            // ),
                                           ),
                                         ),
                                       ),
@@ -202,7 +205,7 @@ class _MainScreenState extends State<MainScreen> {
                   ],
                 ),
                 Positioned(
-                  bottom: screenheight / 100,
+                  bottom: screenheight / 200,
                   child: audioplayer.builderCurrent(
                       builder: ((context, Playing? playing) =>
                           //  showBottomSheet(

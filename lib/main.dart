@@ -28,14 +28,20 @@ void main() async {
 
   favoritesongs = favoritebox.get('favorite');
   final playlistbox = Boxes.getInstance();
-  // final pref = await SharedPreferences.getInstance();
-  // await pref.setBool('isturnon', false);
-  sheredprefenrenceinitial() async {
-    final pref3 = await SharedPreferences.getInstance();
-    notificationison5 = pref3.getBool('isturnon')!;
-  }
+  final pref = await SharedPreferences.getInstance();
+  await pref.setBool('isturnon', false);
+
+  final Pref1 = await SharedPreferences.getInstance();
+  final notificationon = Pref1.getBool('isturnon')!;
+
+  sheredprefenrenceinitial();
 
   runApp(MyApp());
+}
+
+sheredprefenrenceinitial() async {
+  final pref3 = await SharedPreferences.getInstance();
+  notificationison5 = pref3.getBool('isturnon')!;
 }
 
 class MyApp extends StatelessWidget {

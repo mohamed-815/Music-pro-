@@ -57,10 +57,10 @@ class _ShowbottomListState extends State<ShowbottomList> {
                           backgroundColor:
                               const Color.fromARGB(255, 44, 82, 71),
                           shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(8),
+                            borderRadius: BorderRadius.circular(40),
                           ),
                           child: Padding(
-                            padding: const EdgeInsets.all(40.0),
+                            padding: const EdgeInsets.all(20.0),
                             child: Container(
                               width: screenwidth / 10,
                               height: screenhieght / 4,
@@ -121,13 +121,13 @@ class _ShowbottomListState extends State<ShowbottomList> {
                                   ),
                                   Padding(
                                     padding:
-                                        const EdgeInsets.fromLTRB(20, 0, 20, 0),
+                                        const EdgeInsets.fromLTRB(10, 0, 10, 0),
                                     child: Row(
                                       mainAxisAlignment:
-                                          MainAxisAlignment.spaceBetween,
+                                          MainAxisAlignment.spaceAround,
                                       children: [
                                         SizedBox(
-                                          width: screenwidth / 5,
+                                          width: screenwidth / 4.5,
                                           child: ElevatedButton(
                                               style: ElevatedButton.styleFrom(
                                                   backgroundColor: Colors.white,
@@ -148,7 +148,7 @@ class _ShowbottomListState extends State<ShowbottomList> {
                                               )),
                                         ),
                                         SizedBox(
-                                          width: screenwidth / 5,
+                                          width: screenwidth / 4.5,
                                           child: ElevatedButton(
                                               style: ElevatedButton.styleFrom(
                                                   backgroundColor: Colors.white,

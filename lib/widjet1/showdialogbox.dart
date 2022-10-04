@@ -26,7 +26,7 @@ class _ShowdialogeEditState extends State<ShowdialogeEdit> {
         borderRadius: BorderRadius.circular(40),
       ),
       child: Padding(
-        padding: const EdgeInsets.all(40.0),
+        padding: const EdgeInsets.all(30.0),
         child: Container(
           width: screenwidth / 10,
           height: screenheight / 4,
@@ -77,12 +77,12 @@ class _ShowdialogeEditState extends State<ShowdialogeEdit> {
                 height: screenheight / 20,
               ),
               Padding(
-                padding: const EdgeInsets.fromLTRB(20, 0, 20, 0),
+                padding: const EdgeInsets.fromLTRB(10, 0, 10, 0),
                 child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  mainAxisAlignment: MainAxisAlignment.spaceAround,
                   children: [
                     SizedBox(
-                      width: screenwidth / 5,
+                      width: screenwidth / 4.5,
                       child: ElevatedButton(
                           style: ElevatedButton.styleFrom(
                               backgroundColor: Colors.white,
@@ -99,7 +99,7 @@ class _ShowdialogeEditState extends State<ShowdialogeEdit> {
                           )),
                     ),
                     SizedBox(
-                      width: screenwidth / 5,
+                      width: screenwidth / 4.5,
                       child: ElevatedButton(
                           style: ElevatedButton.styleFrom(
                               backgroundColor: Colors.white,

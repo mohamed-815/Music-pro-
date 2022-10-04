@@ -1,12 +1,16 @@
 import 'package:assets_audio_player/assets_audio_player.dart';
 import 'package:flutter/material.dart';
-
+import 'package:flutter/src/widgets/container.dart';
+import 'package:flutter/src/widgets/framework.dart';
+import 'package:flutter/widgets.dart';
 import 'package:flutter_application_1stproject/db/allsongstoringclass.dart';
 import 'package:flutter_application_1stproject/db/audioplay.dart';
 import 'package:flutter_application_1stproject/db/dbfetching.dart';
-
+import 'package:flutter_application_1stproject/mainscreen.dart';
 import 'package:flutter_application_1stproject/miniplayer.dart';
-
+import 'package:flutter_application_1stproject/play%20list/favorite.dart';
+import 'package:flutter_application_1stproject/widjet1/allsongs.dart';
+import 'package:flutter_application_1stproject/widjet1/showbottomsheetplaylist.dart';
 import 'package:on_audio_query/on_audio_query.dart';
 
 class SearchingList extends StatefulWidget {
@@ -21,15 +25,15 @@ List<Audio> listsearch1 = [];
 String? valeu1;
 
 class _SearchingListState extends State<SearchingList> {
+  final controller1 = TextEditingController();
   @override
   Widget build(BuildContext context) {
     final screenhieght = MediaQuery.of(context).size.height;
     final screenwidth = MediaQuery.of(context).size.width;
 
-    final TextEditingController controller1 = TextEditingController();
     return Container(
-      height: screenhieght / 2,
-      color: const Color.fromARGB(255, 63, 80, 66),
+      height: screenhieght / 1.5,
+      color: Color.fromARGB(255, 63, 80, 66),
       child: Column(
         children: [
           Container(
@@ -37,16 +41,11 @@ class _SearchingListState extends State<SearchingList> {
             decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(8), color: Colors.grey),
             child: TextFormField(
-              decoration: const InputDecoration(
-                  hintText: '  search',
-                  border: InputBorder.none,
-                  suffixIcon: Icon(
-                    Icons.search_outlined,
-                    color: Color.fromARGB(255, 63, 62, 62),
-                  )),
+              style: TextStyle(color: Colors.white),
               controller: controller1,
               onChanged: (value) {
-                final valeu1 = value;
+                // final valeu1 = value;
+
                 setState(() {
                   listsearch = dbsongs
                       .where((element) => element.title!
@@ -54,28 +53,37 @@ class _SearchingListState extends State<SearchingList> {
                           .contains(value.toLowerCase()))
                       .toList();
                 });
-                listsearch = dbsongs
-                    .where((element) => element.title!
-                        .toLowerCase()
-                        .contains(value.toLowerCase()))
-                    .toList();
               },
+              decoration: InputDecoration(
+                // enabledBorder: OutlineInputBorder(
+                //   borderSide: BorderSide(
+                //     width: 20,
+                //     color: Colors.grey,
+                //   ),
+                // ),
+                hintText: '  search',
+                border: InputBorder.none,
+                prefixIcon: Icon(
+                  Icons.search_outlined,
+                  color: Color.fromARGB(255, 63, 62, 62),
+                ),
+              ),
             ),
           ),
           SizedBox(
             height: screenhieght / 50,
           ),
-          listsearch.isNotEmpty
+          controller1.text.isNotEmpty
               ? Expanded(
-                  flex: 3,
+                  flex: 8,
                   child: ListView.builder(
                     shrinkWrap: true,
                     itemBuilder: (context, index) {
                       return GestureDetector(
                         onTap: () {
                           showBottomSheet(
-                            backgroundColor: const Color(0xFF52796F),
-                            shape: const RoundedRectangleBorder(
+                            backgroundColor: Color(0xFF52796F),
+                            shape: RoundedRectangleBorder(
                                 borderRadius: BorderRadius.only(
                                     topLeft: Radius.circular(20),
                                     topRight: Radius.circular(20))),
@@ -131,20 +139,18 @@ class _SearchingListState extends State<SearchingList> {
                                 children: [
                                   Container(
                                     width: screenwidth / 3,
-                                    margin: const EdgeInsets.only(right: 13),
+                                    margin: EdgeInsets.only(right: 13),
                                     child: Text(
                                       listsearch[index].title!,
                                       overflow: TextOverflow.ellipsis,
-                                      style:
-                                          const TextStyle(color: Colors.white),
+                                      style: TextStyle(color: Colors.white),
                                     ),
                                   ),
                                   Container(
-                                    width: screenwidth / 3,
-                                    margin: const EdgeInsets.only(right: 13),
+                                    margin: EdgeInsets.only(right: 13),
                                     child:
                                         listsearch[index].artist == '<unknown>'
-                                            ? const Text(
+                                            ? Text(
                                                 'unknown artist',
                                                 style: TextStyle(
                                                     fontSize: 12,
@@ -152,8 +158,7 @@ class _SearchingListState extends State<SearchingList> {
                                               )
                                             : Text(
                                                 listsearch[index].artist!,
-                                                overflow: TextOverflow.ellipsis,
-                                                style: const TextStyle(
+                                                style: TextStyle(
                                                     fontSize: 12,
                                                     color: Colors.white),
                                               ),
@@ -199,7 +204,7 @@ class _SearchingListState extends State<SearchingList> {
                   ))
               : Container(
                   height: screenhieght / 3.5,
-                  child: const Center(
+                  child: Center(
                       child: Text(
                     'search or not found',
                     style: TextStyle(
@@ -211,12 +216,5 @@ class _SearchingListState extends State<SearchingList> {
         ],
       ),
     );
-  }
-
-  @override
-  void dispose() {
-    listsearch.clear();
-    // TODO: implement dispose
-    super.dispose();
   }
 }

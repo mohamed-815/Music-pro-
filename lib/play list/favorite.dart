@@ -100,8 +100,15 @@ class _FavoritesState extends State<Favorites> {
                 height: screenhight / 25,
               ),
 
-              favoritesongs == null || favoritesongs == []
-                  ? const Center(child: Text('no Favorite'))
+              //favoritesongs == null || favoritesongs == []
+              favoritesongs!.isEmpty
+                  ? Expanded(
+                      child: const Center(
+                          child: Text(
+                      'No Favorite',
+                      style: TextStyle(
+                          color: Colors.white, fontWeight: FontWeight.bold),
+                    )))
                   : Expanded(
                       flex: 8,
                       child: ListView.builder(
@@ -345,7 +352,7 @@ class _FavoritesState extends State<Favorites> {
             ],
           ),
           Positioned(
-            bottom: screenhight / 100,
+            bottom: screenhight / 200,
             child: audioplayer.builderCurrent(
                 builder: ((context, Playing? playing) =>
                     //  showBottomSheet(

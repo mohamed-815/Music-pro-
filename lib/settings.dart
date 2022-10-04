@@ -78,10 +78,10 @@ class _SettingsState extends State<Settings> {
                     'Notification',
                     style: TextStyle(color: Colors.white),
                   ),
-                  Text(
-                    'Message, group & call tones',
-                    style: TextStyle(color: Colors.grey.shade400, fontSize: 10),
-                  )
+                  // Text(
+                  //   'Message, group & call tones',
+                  //   style: TextStyle(color: Colors.grey.shade400, fontSize: 10),
+                  // )
                 ],
               ),
               trailing: Switch(
@@ -137,7 +137,7 @@ class _SettingsState extends State<Settings> {
                     style: TextStyle(color: Colors.white),
                   ),
                   Text(
-                    'Help cenre, privacy policy,terms and contitions.',
+                    'Help centre.',
                     style: TextStyle(color: Colors.grey.shade400, fontSize: 10),
                   )
                 ],
